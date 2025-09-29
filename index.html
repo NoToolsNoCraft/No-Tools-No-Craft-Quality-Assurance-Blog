@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="No Tools No Craft">
+    <meta property="og:description" content="Explore expert articles on Cypress Component Testing, Cypress E2E Testing, GitHub Workflows, and Postman by Petar Skrbic.">
+    <meta property="og:image" content="https://via.placeholder.com/1920x1080?text=No+Tools+No+Craft">
+    <meta property="og:url" content="https://example.com/no-tools-no-craft">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="No Tools No Craft">
+    <meta name="twitter:description" content="Explore expert articles on Cypress Component Testing, Cypress E2E Testing, GitHub Workflows, and Postman by Petar Skrbic.">
+    <meta name="twitter:image" content="https://via.placeholder.com/1920x1080?text=No+Tools+No+Craft">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Tools No Craft</title>
+    <style>
+        body {
+            font-family: 'Amazon Ember', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #0F1111;
+            line-height: 1.5;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #232f3e, #131921);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            background: none;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #0F1111;
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab:hover {
+            color: #F90;
+            border-bottom-color: #F90;
+        }
+
+        .tab.active {
+            color: #F90;
+            border-bottom: 2px solid #F90;
+            font-weight: 500;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-decoration: none;
+            color: #0F1111;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #0F1111;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: #565959;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .pagination button {
+            background-color: #37475A;
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .pagination button:hover {
+            background-color: #485769;
+        }
+
+        .pagination button.active {
+            background-color: #F90;
+            color: #0F1111;
+            font-weight: 500;
+        }
+
+        footer {
+            background-color: #232f3e;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #F90;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .articles-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .tabs {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .tab {
+                flex: 1 1 auto;
+                margin: 5px;
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>No Tools No Craft</h1>
+    </header>
+
+    <div class="tabs">
+        <button class="tab active" data-topic="cypress-component">Cypress Component Testing</button>
+        <button class="tab" data-topic="cypress-e2e">Cypress E2E Testing</button>
+        <button class="tab" data-topic="github">GitHub Workflow</button>
+        <button class="tab" data-topic="postman">Postman</button>
+    </div>
+
+    <div id="articles" class="articles-grid"></div>
+    <div id="pagination" class="pagination"></div>
+
+    <footer>
+        Copyright © 2025 Petar Skrbic | <a href="https://www.linkedin.com/in/petar-skrbic/" target="_blank">LinkedIn</a>
+    </footer>
+
+
+     <script src="articles.js"></script>
+    <script>
+
+        const articlesContainer = document.getElementById('articles');
+        const paginationContainer = document.getElementById('pagination');
+        const tabs = document.querySelectorAll('.tab');
+        const ARTICLES_PER_PAGE = 12;
+
+        function renderArticles(topic, page = 1) {
+            articlesContainer.innerHTML = '';
+            const articles = articlesData[topic] || [];
+            const start = (page - 1) * ARTICLES_PER_PAGE;
+            const end = start + ARTICLES_PER_PAGE;
+            const paginatedArticles = articles.slice(start, end);
+
+            paginatedArticles.forEach(article => {
+                const card = document.createElement('a');
+                card.classList.add('card');
+                card.href = article.link;
+                card.target = '_blank';
+                card.innerHTML = `
+                    <img src="${article.image}" alt="${article.title}">
+                    <div class="card-content">
+                        <h2>${article.title}</h2>
+                        <p>${article.desc}</p>
+                    </div>
+                `;
+                articlesContainer.appendChild(card);
+            });
+
+            renderPagination(topic, page, articles.length);
+        }
+
+        function renderPagination(topic, currentPage, totalArticles) {
+            paginationContainer.innerHTML = '';
+            const totalPages = Math.ceil(totalArticles / ARTICLES_PER_PAGE);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                if (i === currentPage) {
+                    button.classList.add('active');
+                }
+                button.addEventListener('click', () => {
+                    renderArticles(topic, i);
+                });
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const topic = tab.dataset.topic;
+                renderArticles(topic, 1);
+            });
+        });
+
+        // Initial render
+        renderArticles('cypress-component', 1);
+    </script>
+
+   
+</body>
+</html>
