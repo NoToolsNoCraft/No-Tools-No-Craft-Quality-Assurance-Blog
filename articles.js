@@ -34,10 +34,10 @@ const articlesData = {
                     desc: "This cheatsheet shows equivalent commands between Cypress Component Testing and React Testing Library (RTL), including the necessary imports."
                 },
                 {
-                    title: "Cypress Component Mocking",
-                    link: "https://example.com/cypress-component-mocking",
-                    image: "https://via.placeholder.com/1920x1080?text=Cypress+Component+Mocking",
-                    desc: "Mocking dependencies in Cypress component tests."
+                    title: "Building and Testing a Job Details Component with React and Cypress",
+                    link: "https://www.linkedin.com/pulse/building-testing-job-details-component-react-cypress-petar-%C5%A1krbi%C4%87-kjxaf/?trackingId=biVm4ugvS6uSFG%2BGh9p%2Fgg%3D%3D",
+                    image: "https://media.licdn.com/dms/image/v2/D4D12AQEsMnVZbESikg/article-cover_image-shrink_720_1280/B4DZmaoc9EG8AI-/0/1759235922786?e=1762387200&v=beta&t=85wA0qmH0akWD03MU2KwCxO8Aevgqa5MmbyV5DgnCZY",
+                    desc: "I built a JobDetails component in React and wrote Cypress component tests to validate its behavior. Here’s a quick walkthrough."
                 },
                 {
                     title: "Cypress Component Accessibility",
@@ -143,5 +143,6 @@ const articlesData = {
                     
    ]
 };
+
 
 
