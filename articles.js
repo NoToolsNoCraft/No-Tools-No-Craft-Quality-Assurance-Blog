@@ -127,16 +127,21 @@ const articlesData = {
                         
                         title: 'File Foundry',
                         desc: 'A simple, browser-based tool that lets you quickly create downloadable ZIP files with custom folder and file structures.',
-                        image: 'github.com/NoToolsNoCraft/File-Foundry/blob/main/file%20foundry%20thumbnail.webp?raw=true',
+                        image: 'https://raw.githubusercontent.com/NoToolsNoCraft/File-Foundry/refs/heads/main/file%20foundry%20thumbnail.webp',
                         link: 'https://notoolsnocraft.github.io/File-Foundry/'
                     },
-                    {
-                        type: 'video',
-                        title: 'Demo: IT Quality Assurance Quiz Extension',
-                        desc: 'A video showcasing my Chrome extension for daily IT QA quizzes.',
-                        thumbnail: 'https://example.com/quiz-extension-thumbnail.jpg',
-                        embedUrl: 'https://www.youtube.com/embed/xyz789abc123'
-                    }
-                ]
+
+                            {
+                        
+                        title: 'QA Challenger',
+                        desc: 'QA Challenger is a powerful and free Chrome extension designed for quality assurance professionals, developers, and students.',
+                        image: 'https://raw.githubusercontent.com/NoToolsNoCraft/QA-Challenger-Landing-Page/refs/heads/main/Untitled.png',
+                        link: 'https://notoolsnocraft.github.io/QA-Challenger-Landing-Page/'
+                    },
+
+            
+                    
+   ]
 };
+
 
