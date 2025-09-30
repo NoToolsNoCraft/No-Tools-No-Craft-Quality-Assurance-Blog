@@ -169,7 +169,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -140%);
+            transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
             background-color: rgba(0, 0, 0, 0.6);
@@ -350,7 +350,6 @@
     <script src="articles.js"></script>
     <script src="faqs.js"></script>
     <script>
-        const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY'; // Replace with your YouTube Data API key
         const articlesContainer = document.getElementById('articles');
         const paginationContainer = document.getElementById('pagination');
         const tabs = document.querySelectorAll('.tab');
@@ -378,35 +377,6 @@
             modal.style.display = 'flex';
         }
 
-        async function fetchYouTubeData(videoId) {
-            try {
-                const response = await fetch(
-                    `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${YOUTUBE_API_KEY}`
-                );
-                const data = await response.json();
-                if (data.items && data.items.length > 0) {
-                    const video = data.items[0].snippet;
-                    return {
-                        title: video.title,
-                        thumbnail: video.thumbnails?.maxres?.url || video.thumbnails?.high?.url || 'https://via.placeholder.com/1280x720?text=Thumbnail+Not+Found',
-                        desc: video.description.substring(0, 100) + '...'
-                    };
-                }
-                return {
-                    title: 'Video Not Found',
-                    thumbnail: 'https://via.placeholder.com/1280x720?text=Video+Not+Found',
-                    desc: 'Could not load video details.'
-                };
-            } catch (error) {
-                console.error('Error fetching YouTube data:', error);
-                return {
-                    title: 'Error Loading Video',
-                    thumbnail: 'https://via.placeholder.com/1280x720?text=Error',
-                    desc: 'Failed to load video details.'
-                };
-            }
-        }
-
         function renderFAQs() {
             articlesContainer.classList.remove('articles-grid');
             articlesContainer.classList.add('faq-container');
@@ -424,7 +394,7 @@
             });
         }
 
-        async function renderArticles(topic, page = 1) {
+        function renderArticles(topic, page = 1) {
             articlesContainer.classList.add('articles-grid');
             articlesContainer.classList.remove('faq-container');
             articlesContainer.innerHTML = '';
@@ -433,28 +403,17 @@
             const end = start + ARTICLES_PER_PAGE;
             const paginatedArticles = articles.slice(start, end);
 
-            for (const article of paginatedArticles) {
-                let title = article.title;
-                let thumbnail = article.image || article.thumbnail;
-                let desc = article.desc;
-
-                if (article.type === 'video' && article.videoId) {
-                    const youtubeData = await fetchYouTubeData(article.videoId);
-                    title = youtubeData.title;
-                    thumbnail = youtubeData.thumbnail;
-                    desc = youtubeData.desc;
-                }
-
+            paginatedArticles.forEach(article => {
                 const card = document.createElement('div');
                 card.classList.add('card');
 
-                let imageHtml = `<img src="${thumbnail}" alt="${title}">`;
+                let imageHtml = `<img src="${article.image || article.thumbnail}" alt="${article.title}">`;
 
                 if (article.type === 'video') {
                     imageHtml += `<div class="play-button"></div>`;
                     card.style.cursor = 'pointer';
                     card.addEventListener('click', () => {
-                        openVideo(`https://www.youtube.com/embed/${article.videoId}`);
+                        openVideo(article.embedUrl);
                     });
                 } else {
                     const linkWrapper = document.createElement('a');
@@ -463,22 +422,22 @@
                     linkWrapper.classList.add('card');
                     linkWrapper.innerHTML = imageHtml + `
                         <div class="card-content">
-                            <h2>${title}</h2>
-                            <p>${desc}</p>
+                            <h2>${article.title}</h2>
+                            <p>${article.desc}</p>
                         </div>
                     `;
                     articlesContainer.appendChild(linkWrapper);
-                    continue;
+                    return;
                 }
 
                 card.innerHTML = imageHtml + `
                     <div class="card-content">
-                        <h2>${title}</h2>
-                        <p>${desc}</p>
+                        <h2>${article.title}</h2>
+                        <p>${article.desc}</p>
                     </div>
                 `;
                 articlesContainer.appendChild(card);
-            }
+            });
 
             renderPagination(topic, page, articles.length);
         }
@@ -517,5 +476,4 @@
         renderArticles('cypress-component', 1);
     </script>
 </body>
-
 </html>
