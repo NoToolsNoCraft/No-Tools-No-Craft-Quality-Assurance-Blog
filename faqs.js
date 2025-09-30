@@ -112,6 +112,11 @@ jobs:
             `
         }
     ],
+
+
+
+
+    
     'postman': [
         {
             question: 'How can I automate API testing with Postman?',
@@ -130,6 +135,29 @@ newman run "YourCollection.json" -e "YourEnvironment.json" --reporters cli,html
                 <p>This approach enables automated, repeatable API testing integrated with your development workflow.</p>
             `
         }
+    ],
+
+
+
+
+    'manual': [
+        {
+            question: 'What is the difference between ad hoc testing and exploratory testing?',
+            answer: `
+                <p><strong>Key differences between ad hoc and exploratory testing:</strong></p>
+                <ul>
+                    <li><strong>Ad hoc testing</strong> – Performed without planning or documentation. Testers rely purely on intuition and experience, often trying random scenarios to "break" the system. It’s usually unstructured and not repeatable.</li>
+                    <li><strong>Exploratory testing</strong> – More structured than ad hoc. Testers simultaneously design, execute, and learn about the application while testing. They often follow test charters or goals, take notes, and document findings for traceability.</li>
+                    <li><strong>Documentation</strong> – Ad hoc testing rarely produces records, whereas exploratory testing encourages documenting observations, issues, and coverage.</li>
+                    <li><strong>Use cases</strong> – Ad hoc testing is useful for quick sanity checks or when time is very limited. Exploratory testing is valuable for uncovering hidden defects, learning the system deeply, and supplementing scripted tests.</li>
+                </ul>
+                <p><strong>In short:</strong> Ad hoc testing is informal and random, while exploratory testing is structured, purposeful, and documented learning combined with test execution.</p>
+            `
+        }
+
     ]
 
+    
+
 };
+
