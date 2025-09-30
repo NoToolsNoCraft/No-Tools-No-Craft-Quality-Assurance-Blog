@@ -91,6 +91,15 @@
             padding: 0 20px;
         }
 
+        .faq-container h2 {
+            grid-column: 1 / -1;
+            font-size: 24px;
+            font-weight: 500;
+            color: #0F1111;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+
         .faq-item {
             background-color: #fff;
             border-radius: 8px;
@@ -169,7 +178,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -140%);
+            transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
             background-color: rgba(0, 0, 0, 0.6);
@@ -330,11 +339,11 @@
         <button class="tab" data-topic="cypress-e2e">Cypress E2E Testing</button>
         <button class="tab" data-topic="github">GitHub Workflow</button>
         <button class="tab" data-topic="postman">Postman</button>
-        <button class="tab" data-topic="faq">FAQ</button>
     </div>
 
     <div id="articles" class="articles-grid"></div>
     <div id="pagination" class="pagination"></div>
+    <div id="faqs" class="faq-container"></div>
 
     <div id="videoModal" class="modal">
         <div class="modal-content">
@@ -351,6 +360,7 @@
     <script src="faqs.js"></script>
     <script>
         const articlesContainer = document.getElementById('articles');
+        const faqsContainer = document.getElementById('faqs');
         const paginationContainer = document.getElementById('pagination');
         const tabs = document.querySelectorAll('.tab');
         const modal = document.getElementById('videoModal');
@@ -377,26 +387,27 @@
             modal.style.display = 'flex';
         }
 
-        function renderFAQs() {
-            articlesContainer.classList.remove('articles-grid');
-            articlesContainer.classList.add('faq-container');
-            articlesContainer.innerHTML = '';
-            paginationContainer.innerHTML = ''; // No pagination for FAQs
-
-            faqsData.forEach(faq => {
-                const faqItem = document.createElement('details');
-                faqItem.classList.add('faq-item');
-                faqItem.innerHTML = `
-                    <summary>${faq.question}</summary>
-                    <div class="faq-content">${faq.answer}</div>
-                `;
-                articlesContainer.appendChild(faqItem);
-            });
+        function renderFAQs(topic) {
+            faqsContainer.innerHTML = '';
+            const faqs = faqsData[topic] || [];
+            if (faqs.length > 0) {
+                const heading = document.createElement('h2');
+                heading.textContent = `${topic.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} FAQs`;
+                faqsContainer.appendChild(heading);
+                faqs.forEach(faq => {
+                    const faqItem = document.createElement('details');
+                    faqItem.classList.add('faq-item');
+                    faqItem.innerHTML = `
+                        <summary>${faq.question}</summary>
+                        <div class="faq-content">${faq.answer}</div>
+                    `;
+                    faqsContainer.appendChild(faqItem);
+                });
+            }
         }
 
         function renderArticles(topic, page = 1) {
             articlesContainer.classList.add('articles-grid');
-            articlesContainer.classList.remove('faq-container');
             articlesContainer.innerHTML = '';
             const articles = articlesData[topic] || [];
             const start = (page - 1) * ARTICLES_PER_PAGE;
@@ -440,6 +451,7 @@
             });
 
             renderPagination(topic, page, articles.length);
+            renderFAQs(topic); // Render FAQs after pagination
         }
 
         function renderPagination(topic, currentPage, totalArticles) {
@@ -464,11 +476,7 @@
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 const topic = tab.dataset.topic;
-                if (topic === 'faq') {
-                    renderFAQs();
-                } else {
-                    renderArticles(topic, 1);
-                }
+                renderArticles(topic, 1);
             });
         });
 
@@ -476,5 +484,4 @@
         renderArticles('cypress-component', 1);
     </script>
 </body>
-
 </html>
