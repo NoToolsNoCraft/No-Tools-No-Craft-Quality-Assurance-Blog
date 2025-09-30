@@ -28,10 +28,10 @@ const articlesData = {
                  },
                         
                 {
-                    title: "Cypress Plugins for Components",
-                    link: "https://example.com/cypress-component-plugins",
-                    image: "https://via.placeholder.com/1920x1080?text=Cypress+Component+Plugins",
-                    desc: "Enhancing component testing with Cypress plugins."
+                    title: "Cypress vs React Testing Library: Component Testing Commands",
+                    link: "https://notoolsnocraft.github.io/React-Testing-Library-and-Cypress-Component-testing-commands/",
+                    image: "https://s3.amazonaws.com/blog-assets-production.testsigma.com/blogs/wp-content/uploads/2024/10/22120528/cypress-vs-react-testing-library-1.png?format=webp&w=828&q=75",
+                    desc: "This cheatsheet shows equivalent commands between Cypress Component Testing and React Testing Library (RTL), including the necessary imports."
                 },
                 {
                     title: "Cypress Component Mocking",
@@ -120,4 +120,5 @@ const articlesData = {
             ]
 
         };
+
 
