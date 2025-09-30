@@ -13,10 +13,10 @@ const articlesData = {
                     desc: "Instead of sticking to just end-to-end testing, I wanted to explore how Cypress can be used to test individual UI components in isolation."
                 },
                 {
-                    title: "Cypress Component Best Practices",
-                    link: "https://example.com/cypress-component-best",
-                    image: "https://via.placeholder.com/1920x1080?text=Cypress+Component+Best",
-                    desc: "Best practices for writing Cypress component tests."
+                    title: "Building and Testing a React Job Listings Component with Cypress",
+                    link: "https://www.linkedin.com/pulse/building-testing-react-job-listings-component-cypress-petar-%C5%A1krbi%C4%87-5vlsf/?trackingId=pSMjoyqrTTSVuzQzD0kn8w%3D%3D",
+                    image: "https://media.licdn.com/dms/image/v2/D4D12AQHaO2UoxnBOPA/article-cover_image-shrink_720_1280/B4DZmZyl5_JEAM-/0/1759221803897?e=1762387200&v=beta&t=BGbKeFtVEEXVmDPVRGznK74zyXvnFjaidzdAoI9_bFw",
+                    desc: "I’ll walk you through the component, the test, and why this approach works well."
                 },
                 {
                     title: "Cypress Plugins for Components",
@@ -109,4 +109,5 @@ const articlesData = {
                     desc: "How to create automated test suites in Postman."
                 }
             ]
+
         };
