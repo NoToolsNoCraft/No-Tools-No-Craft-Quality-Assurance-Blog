@@ -5,14 +5,14 @@
     <meta name="google-site-verification" content="zDYE9CKvXIbXZNd02uOO3KK_di9JhmjQpIVHrtXzOLI" />
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="No Tools No Craft">
-    <meta property="og:description" content="Explore expert articles, videos, and FAQs on Cypress Component Testing, Cypress E2E Testing, GitHub Workflows, and Postman by Petar Skrbic.">
+    <meta property="og:description" content="Explore expert articles, videos, and FAQs on Cypress Component Testing, Cypress E2E Testing, GitHub Workflows, Postman, and custom solutions by Petar Skrbic.">
     <meta property="og:image" content="github.com/NoToolsNoCraft/No-Tools-No-Craft-Quality-Assurance-Blog/blob/main/qa-thumbnail.webp?raw=true">
     <meta property="og:url" content="https://notoolsnocraft.github.io/No-Tools-No-Craft-Quality-Assurance-Blog/">
     <meta property="og:type" content="website">
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="No Tools No Craft">
-    <meta name="twitter:description" content="Explore expert articles, videos, and FAQs on Cypress Component Testing, Cypress E2E Testing, GitHub Workflows, and Postman by Petar Skrbic.">
+    <meta name="twitter:description" content="Explore expert articles, videos, and FAQs on Cypress Component Testing, Cypress E2E Testing, GitHub Workflows, Postman, and custom solutions by Petar Skrbic.">
     <meta name="twitter:image" content="github.com/NoToolsNoCraft/No-Tools-No-Craft-Quality-Assurance-Blog/blob/main/qa-thumbnail.webp?raw=true">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>No Tools No Craft</title>
@@ -141,12 +141,12 @@
             overflow: hidden;
             text-decoration: none;
             color: #0F1111;
-            transition:  0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
         }
 
         .card:hover {
-            : translateY(-3px);
+            transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
@@ -178,7 +178,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -140%);
+            transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
             background-color: rgba(0, 0, 0, 0.6);
@@ -339,6 +339,7 @@
         <button class="tab" data-topic="cypress-e2e">Cypress E2E Testing</button>
         <button class="tab" data-topic="github">GitHub Workflow</button>
         <button class="tab" data-topic="postman">Postman</button>
+        <button class="tab" data-topic="my-solutions">My Solutions</button>
     </div>
 
     <div id="articles" class="articles-grid"></div>
@@ -484,5 +485,4 @@
         renderArticles('cypress-component', 1);
     </script>
 </body>
-
 </html>
