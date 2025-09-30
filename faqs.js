@@ -18,7 +18,40 @@ const faqsData = {
                 </ul>
                 <p>In these cases, it’s fair to check styles, but you’d usually test them by user outcome (e.g., “the modal is visible” rather than “it has <code>top: 0</code>”). Cypress can check <code>should('be.visible')</code> or <code>should('not.be.visible')</code> without digging into CSS rules.</p>
             `
+        },
+        
+        {
+            question: 'When writing component tests, should I use a real API or simulate it?',
+            answer: `
+                <p><strong>Why you usually simulate APIs:</strong></p>
+                <ul>
+                    <li><strong>Speed</strong> – Component tests should run fast and in isolation, without waiting on real servers.</li>
+                    <li><strong>Stability</strong> – Real APIs may be down, slow, or return unpredictable data. Mocking keeps your tests consistent.</li>
+                    <li><strong>Focus</strong> – Component tests verify rendering and logic, not backend correctness. The backend is tested separately with integration or e2e tests.</li>
+                </ul>
+                <p><strong>How to simulate an API in Cypress:</strong></p>
+                <pre><code class="language-js">
+        cy.intercept('GET', 'http://localhost:3001/jobs/1', {
+          statusCode: 200,
+          body: {
+            id: 1,
+            title: 'Software Engineer',
+            company: 'Tech Corp',
+            location: 'Remote',
+            salary: 120000,
+            description: 'Build amazing software!'
+          }
+        }).as('getJob');
+        
+        cy.mount(<MemoryRouter initialEntries={['/jobs/1']}><JobDetails /></MemoryRouter>);
+        cy.wait('@getJob');
+        cy.contains('Software Engineer');
+                </code></pre>
+                <p><strong>When to use a real API:</strong></p>
+                <p>You might hit the real backend in a small number of smoke or end-to-end tests to ensure integration works. But for most component tests, mocking keeps things fast, reliable, and isolated.</p>
+            `
         }
+
     ],
     'cypress-e2e': [
         {
@@ -98,4 +131,5 @@ newman run "YourCollection.json" -e "YourEnvironment.json" --reporters cli,html
             `
         }
     ]
+
 };
