@@ -18,6 +18,15 @@ const articlesData = {
                     image: "https://media.licdn.com/dms/image/v2/D4D12AQHaO2UoxnBOPA/article-cover_image-shrink_720_1280/B4DZmZyl5_JEAM-/0/1759221803897?e=1762387200&v=beta&t=BGbKeFtVEEXVmDPVRGznK74zyXvnFjaidzdAoI9_bFw",
                     desc: "I’ll walk you through the component, the test, and why this approach works well."
                 },
+
+                {
+                    type: 'video',
+                    title: 'How to reset your server port in Visual Studio Code / Kill Port',
+                    desc: '',
+                    thumbnail: 'https://i9.ytimg.com/vi_webp/sqmY-0OEPcw/mq2.webp?sqp=CLy67sYG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYACpAWKAgwIABABGE8gXChlMA8=&rs=AOn4CLAWMGUb4q3igDO9FSCcY_3pxlyXzA', 
+                    embedUrl: 'https://www.youtube.com/embed/sqmY-0OEPcw?si=XkhAQzjxtl26Nh-Z' 
+                 },
+                        
                 {
                     title: "Cypress Plugins for Components",
                     link: "https://example.com/cypress-component-plugins",
@@ -111,3 +120,4 @@ const articlesData = {
             ]
 
         };
+
