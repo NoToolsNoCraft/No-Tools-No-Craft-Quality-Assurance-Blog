@@ -124,7 +124,7 @@ const articlesData = {
             
                 'my-solutions': [
                     {
-                        type: 'article',
+                        
                         title: 'File Foundry',
                         desc: 'A simple, browser-based tool that lets you quickly create downloadable ZIP files with custom folder and file structures.',
                         image: 'github.com/NoToolsNoCraft/File-Foundry/blob/main/file%20foundry%20thumbnail.webp?raw=true',
@@ -139,3 +139,4 @@ const articlesData = {
                     }
                 ]
 };
+
