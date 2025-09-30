@@ -139,7 +139,7 @@ const articlesData = {
                         link: 'https://notoolsnocraft.github.io/QA-Challenger-Landing-Page/'
                     },
               
-               ]
+               ],
 
             
                 'my-solutions': [
@@ -163,6 +163,7 @@ const articlesData = {
 
             
 };
+
 
 
 
