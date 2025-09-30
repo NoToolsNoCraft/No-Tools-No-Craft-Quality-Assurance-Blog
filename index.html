@@ -94,6 +94,7 @@
             text-decoration: none;
             color: #0F1111;
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative; /* Added for play button overlay */
         }
 
         .card:hover {
@@ -123,6 +124,83 @@
             margin: 0;
             font-size: 14px;
             color: #565959;
+        }
+
+        /* Play button styles */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .play-button:hover {
+            opacity: 1;
+        }
+
+        .play-button::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid #fff;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px; /* Slight offset for centering */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ccc;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .pagination {
@@ -216,18 +294,46 @@
     <div id="articles" class="articles-grid"></div>
     <div id="pagination" class="pagination"></div>
 
+    <!-- Modal for video popup -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="videoIframe" src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <footer>
         Copyright © 2025 Petar Skrbic | <a href="https://www.linkedin.com/in/petar-skrbic/" target="_blank">LinkedIn</a>
     </footer>
 
-
-     <script src="articles.js"></script>
+    <script src="articles.js"></script>
     <script>
-
         const articlesContainer = document.getElementById('articles');
         const paginationContainer = document.getElementById('pagination');
         const tabs = document.querySelectorAll('.tab');
+        const modal = document.getElementById('videoModal');
+        const videoIframe = document.getElementById('videoIframe');
+        const closeBtn = document.querySelector('.close');
         const ARTICLES_PER_PAGE = 12;
+
+        // Close modal when clicking the close button
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            videoIframe.src = ''; // Stop video playback
+        });
+
+        // Close modal when clicking outside the content
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                videoIframe.src = '';
+            }
+        });
+
+        function openVideo(embedUrl) {
+            videoIframe.src = embedUrl;
+            modal.style.display = 'flex';
+        }
 
         function renderArticles(topic, page = 1) {
             articlesContainer.innerHTML = '';
@@ -237,12 +343,37 @@
             const paginatedArticles = articles.slice(start, end);
 
             paginatedArticles.forEach(article => {
-                const card = document.createElement('a');
+                const card = document.createElement('div'); // Use div for both, but make it clickable for videos
                 card.classList.add('card');
-                card.href = article.link;
-                card.target = '_blank';
-                card.innerHTML = `
-                    <img src="${article.image}" alt="${article.title}">
+
+                let imageHtml = `<img src="${article.image || article.thumbnail}" alt="${article.title}">`;
+
+                if (article.type === 'video') {
+                    // Add play button overlay
+                    imageHtml += `<div class="play-button"></div>`;
+
+                    // Make card clickable to open modal
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', () => {
+                        openVideo(article.embedUrl); // Assume embedUrl is like 'https://www.youtube.com/embed/VIDEO_ID'
+                    });
+                } else {
+                    // For articles, wrap in <a>
+                    const linkWrapper = document.createElement('a');
+                    linkWrapper.href = article.link;
+                    linkWrapper.target = '_blank';
+                    linkWrapper.classList.add('card'); // Move card class to a for articles
+                    linkWrapper.innerHTML = imageHtml + `
+                        <div class="card-content">
+                            <h2>${article.title}</h2>
+                            <p>${article.desc}</p>
+                        </div>
+                    `;
+                    articlesContainer.appendChild(linkWrapper);
+                    return; // Skip appending card for articles
+                }
+
+                card.innerHTML = imageHtml + `
                     <div class="card-content">
                         <h2>${article.title}</h2>
                         <p>${article.desc}</p>
@@ -283,9 +414,5 @@
         // Initial render
         renderArticles('cypress-component', 1);
     </script>
-
-   
 </body>
-
 </html>
-
