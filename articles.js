@@ -23,7 +23,7 @@ const articlesData = {
                     type: 'video',
                     title: 'How to reset your server port in Visual Studio Code / Kill Port',
                     desc: '',
-                    thumbnail: 'https://i9.ytimg.com/vi_webp/sqmY-0OEPcw/mq2.webp?sqp=CPT98MYG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYACpAWKAgwIABABGE8gXChlMA8=&rs=AOn4CLDyDYuzr5PKSauvh9uMCFklZx3sDg', 
+                    thumbnail: 'https://raw.githubusercontent.com/NoToolsNoCraft/No-Tools-No-Craft-Quality-Assurance-Blog/refs/heads/main/images/mq2.webp', 
                     embedUrl: 'https://www.youtube.com/embed/sqmY-0OEPcw?si=XkhAQzjxtl26Nh-Z' 
                  },
                         
@@ -173,6 +173,7 @@ const articlesData = {
 
             
 };
+
 
 
 
