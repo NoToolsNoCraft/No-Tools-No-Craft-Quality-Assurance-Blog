@@ -123,6 +123,16 @@ const articlesData = {
 
 
             'manual': [
+
+                        {
+                                type: 'video',
+                                title: 'Fast Exploratory Testing Demo on the Oysterlink.com Paycheck Calculator Feature',
+                                desc: '',
+                                thumbnail: 'https://raw.githubusercontent.com/NoToolsNoCraft/No-Tools-No-Craft-Quality-Assurance-Blog/refs/heads/main/images/Screenshot%202025-10-01%20145940.png', 
+                                embedUrl: 'https://www.youtube.com/embed/g9qu0YIC_Tk?si=D7_CqA0ouftBM9rK' 
+                             },
+
+                        
                     {
                         
                         title: 'File Foundry',
@@ -163,6 +173,7 @@ const articlesData = {
 
             
 };
+
 
 
 
