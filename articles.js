@@ -107,6 +107,16 @@ const articlesData = {
 
             
             postman: [
+
+
+                        {
+                                type: 'video',
+                                title: 'API Testing of a Google Sheet database with Postman',
+                                desc: '',
+                                thumbnail: 'https://raw.githubusercontent.com/NoToolsNoCraft/No-Tools-No-Craft-Quality-Assurance-Blog/refs/heads/main/images/API%20Testing%20of%20a%20Google%20Sheet%20database%20with%20Postman.webp', 
+                                embedUrl: 'https://www.youtube.com/embed/ji5OcS3TVhs?si=bQLh37GzK9ElP6uu' 
+                             },
+                        
                 {
                     title: "Postman Basics for API Testing",
                     link: "https://example.com/postman-basics",
@@ -173,6 +183,7 @@ const articlesData = {
 
             
 };
+
 
 
 
