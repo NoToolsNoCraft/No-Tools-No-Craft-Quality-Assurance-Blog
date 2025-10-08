@@ -168,7 +168,7 @@ const articlesData = {
                         
                         title: 'Gde Jesti',
                         desc: 'A SEO optimized Restaurant Web catalog for the Serbian Market',
-                        image: 'github.com/NoToolsNoCraft/No-Tools-No-Craft-Quality-Assurance-Blog/blob/main/images/crispy-fried-chicken-drumstick-png-akqko2ppw8229oto-akqko2ppw8229oto.png?raw=true',
+                        image: 'https://raw.githubusercontent.com/NoToolsNoCraft/No-Tools-No-Craft-Quality-Assurance-Blog/refs/heads/main/images/crispy-fried-chicken-drumstick-png-akqko2ppw8229oto-akqko2ppw8229oto.png',
                         link: 'https://gde-jesti.github.io/'
                     },
                             
@@ -192,6 +192,7 @@ const articlesData = {
 
             
 };
+
 
 
 
