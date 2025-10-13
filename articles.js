@@ -118,10 +118,10 @@ const articlesData = {
                              },
                         
                 {
-                    title: "Postman Basics for API Testing",
-                    link: "https://example.com/postman-basics",
-                    image: "https://via.placeholder.com/1920x1080?text=Postman+Basics",
-                    desc: "An introduction to using Postman for testing APIs."
+                    title: "How to Build and Test a Local SOAP API Using Node.js and Postman",
+                    link: "https://www.linkedin.com/pulse/how-build-test-local-soap-api-using-nodejs-postman-petar-%C5%A1krbi%C4%87-irszf/?trackingId=b%2FQOsP9Li%2Bhv2NByAD2%2Fiw%3D%3D",
+                    image: "https://media.licdn.com/dms/image/v2/D4D12AQHi9cUj9vFKTA/article-cover_image-shrink_720_1280/B4DZnddRIOGkAI-/0/1760357065794?e=1762992000&v=beta&t=sdbw3VG4jewrnGVLNM1rYuvWr5NU57roe_qiQT97ng4",
+                    desc: "I’ll walk you step-by-step through setting up a working SOAP API in Visual Studio Code, testing it in Postman, and even persisting data in a local JSON file for realistic behavior."
                 },
                 {
                     title: "Automating Tests with Postman",
@@ -192,6 +192,7 @@ const articlesData = {
 
             
 };
+
 
 
 
