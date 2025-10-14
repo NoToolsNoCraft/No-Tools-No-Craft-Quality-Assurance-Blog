@@ -118,6 +118,26 @@ jobs:
 
     
     'postman': [
+
+        {
+        question: 'What are REST, API, and SOAP?',
+        answer: `
+            <p><strong>Key Integration Terms Explained:</strong></p>
+            <ul>
+                <li><strong>API</strong> – stands for <em>Application Programming Interface</em>. It defines a set of rules that allow different software systems to communicate and exchange data.</li>
+                <li><strong>REST</strong> – stands for <em>Representational State Transfer</em>. It is a lightweight architecture for building web APIs using standard HTTP methods like GET, POST, PUT, and DELETE. REST APIs are stateless and widely used in modern web and banking systems.</li>
+                <li><strong>SOAP</strong> – stands for <em>Simple Object Access Protocol</em>. It is an older protocol for exchanging structured data between systems using XML. SOAP APIs are more rigid but offer high security and transactional reliability, often used in legacy banking systems.</li>
+            </ul>
+
+            <p><strong>In Erste Bank Context:</strong></p>
+            <ul>
+                <li><strong>REST APIs</strong> – used in modern platforms like George for mobile and web banking integrations.</li>
+                <li><strong>SOAP services</strong> – still exist in older core systems for internal data exchange and compliance reporting.</li>
+            </ul>
+
+        `
+    },
+        
         {
             question: 'How can I automate API testing with Postman?',
             answer: `
@@ -261,6 +281,7 @@ newman run "YourCollection.json" -e "YourEnvironment.json" --reporters cli,html
     
 
 };
+
 
 
 
