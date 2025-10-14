@@ -134,7 +134,41 @@ newman run "YourCollection.json" -e "YourEnvironment.json" --reporters cli,html
                 </code></pre>
                 <p>This approach enables automated, repeatable API testing integrated with your development workflow.</p>
             `
-        }
+        },
+
+        {
+        question: 'What is the difference between stateless and stateful systems?',
+        answer: `
+            <p><strong>Understanding Stateless vs Stateful Systems:</strong></p>
+            <ul>
+                <li><strong>Stateless:</strong> The server does not store any session information. Each request is independent and contains all the data needed for processing. This makes it highly scalable and fault-tolerant.</li>
+                <li><strong>Stateful:</strong> The server remembers previous interactions and keeps session data (such as user login, transaction steps, or context). Each request depends on prior ones, which can make scaling more complex.</li>
+            </ul>
+
+            <p><strong>Key Differences:</strong></p>
+            <table>
+                <tr><th>Aspect</th><th>Stateless</th><th>Stateful</th></tr>
+                <tr><td>Server Memory</td><td>No session storage</td><td>Keeps session info</td></tr>
+                <tr><td>Each Request</td><td>Independent</td><td>Depends on previous requests</td></tr>
+                <tr><td>Scalability</td><td>Easy to scale</td><td>Harder to scale</td></tr>
+                <tr><td>Examples</td><td>REST APIs, HTTP, Microservices</td><td>FTP sessions, Legacy systems</td></tr>
+                <tr><td>Failure Recovery</td><td>Simple – resend request</td><td>Complex – session may be lost</td></tr>
+            </table>
+
+            <p><strong>In Erste Bank Context:</strong></p>
+            <ul>
+                <li><strong>Stateless Example:</strong> REST APIs used by digital platforms like the George app are stateless. Each API call includes all necessary info (auth token, account ID), allowing scalability and resilience.</li>
+                <li><strong>Stateful Example:</strong> Legacy core banking systems often maintain session context during multi-step transactions, such as loan approvals or account management.</li>
+            </ul>
+
+            <p><strong>Interview Answer Example:</strong></p>
+            <blockquote>
+                “Stateless means the server doesn’t keep session information — every request carries all required data, making it scalable and resilient, ideal for REST APIs.  
+                Stateful systems remember previous interactions and are common in older banking systems where multi-step processes need session persistence.  
+                At Erste Bank, new microservices typically use stateless APIs, while legacy integrations may remain stateful.”
+            </blockquote>
+        `
+    }
     ],
 
 
@@ -160,4 +194,5 @@ newman run "YourCollection.json" -e "YourEnvironment.json" --reporters cli,html
     
 
 };
+
 
