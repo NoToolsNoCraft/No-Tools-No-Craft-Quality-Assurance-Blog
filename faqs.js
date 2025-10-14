@@ -168,6 +168,73 @@ newman run "YourCollection.json" -e "YourEnvironment.json" --reporters cli,html
                 At Erste Bank, new microservices typically use stateless APIs, while legacy integrations may remain stateful.”
             </blockquote>
         `
+    },
+
+        {
+        question: 'What is event streaming and why is it used in banking systems?',
+        answer: `
+            <p><strong>Understanding Event Streaming:</strong></p>
+            <ul>
+                <li><strong>Definition:</strong> Event streaming is a way of continuously capturing, processing, and delivering data in real time as events occur.</li>
+                <li><strong>Technology:</strong> Tools like <strong>Apache Kafka</strong> are commonly used to manage event streams — publishing events (like “payment processed” or “account updated”) and allowing other systems to consume them instantly.</li>
+                <li><strong>Architecture:</strong> Instead of waiting for batch updates, systems react immediately to events as they happen.</li>
+            </ul>
+
+            <p><strong>How It Works:</strong></p>
+            <ul>
+                <li>Producer sends an event (e.g., a card transaction).</li>
+                <li>Kafka or another streaming platform stores and distributes the event.</li>
+                <li>Consumers (e.g., fraud detection, notifications, analytics) receive it instantly.</li>
+            </ul>
+
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>Real-time data flow between systems.</li>
+                <li>Improved customer experience (instant transaction updates, alerts).</li>
+                <li>Scalable integration between many systems (microservices, APIs, analytics tools).</li>
+            </ul>
+
+            <p><strong>In Erste Bank Context:</strong></p>
+            <ul>
+                <li>Erste Bank uses <strong>Kafka</strong> for real-time integration between core banking, mobile apps, and analytics services.</li>
+                <li>For example, when a user makes a transaction in George, Kafka streams the event to multiple systems (transaction history, fraud monitoring, reporting) in real time.</li>
+            </ul>
+
+            <p><strong>Interview Answer Example:</strong></p>
+            <blockquote>
+                “Event streaming allows real-time data communication between systems. Erste Bank uses Kafka so that when an event like a transaction or payment occurs, multiple systems can process it instantly — such as updating balances, sending alerts, or running fraud checks. It improves performance, scalability, and data consistency across services.”
+            </blockquote>
+        `
+    },
+    {
+        question: 'What is file transfer and how is it used in banking integrations?',
+        answer: `
+            <p><strong>Understanding File Transfer:</strong></p>
+            <ul>
+                <li><strong>Definition:</strong> File transfer refers to the process of moving structured data files (like CSV, XML, or flat files) between systems or organizations.</li>
+                <li><strong>Protocols:</strong> Common methods include <strong>SFTP (Secure File Transfer Protocol)</strong>, <strong>FTPS</strong>, or secure shared folders.</li>
+                <li><strong>Purpose:</strong> Often used when large data volumes or batch processing are needed instead of real-time exchange.</li>
+            </ul>
+
+            <p><strong>When File Transfer Is Used:</strong></p>
+            <ul>
+                <li>Batch updates between systems (e.g., end-of-day reports, transactions, or settlements).</li>
+                <li>Data exchange with third parties who don’t have API or event streaming interfaces.</li>
+                <li>Migration or data backup processes.</li>
+            </ul>
+
+            <p><strong>In Erste Bank Context:</strong></p>
+            <ul>
+                <li>Still widely used for integrations with external partners, government institutions, and financial reporting systems.</li>
+                <li>For example, Erste may send daily settlement or interest reports via SFTP to regulatory bodies or clearinghouses.</li>
+                <li>Modern systems are moving toward APIs and Kafka, but file transfer remains a secure and reliable legacy method.</li>
+            </ul>
+
+            <p><strong>Interview Answer Example:</strong></p>
+            <blockquote>
+                “File transfer is a traditional integration method used to exchange large or batch datasets securely — for example, via SFTP. In Erste Bank, it’s often used for end-of-day reports, settlements, or communication with external partners that don’t support APIs. While event streaming and REST APIs are replacing many of these cases, file transfer remains critical for certain regulatory and batch operations.”
+            </blockquote>
+        `
     }
     ],
 
@@ -194,5 +261,6 @@ newman run "YourCollection.json" -e "YourEnvironment.json" --reporters cli,html
     
 
 };
+
 
 
